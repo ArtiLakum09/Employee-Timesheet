@@ -21,6 +21,8 @@ return new class extends Migration
             $table->timestamp('clock_out_time')->nullable();
             $table->timestamp('break_start_time')->nullable();
             $table->timestamp('break_end_time')->nullable();
+            $table->decimal('latitude', 10, 8)->nullable();
+            $table->decimal('longitude', 11, 8)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

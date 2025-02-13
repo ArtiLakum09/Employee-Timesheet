@@ -10,7 +10,7 @@ class Employee extends Authenticatable
 {
     use HasFactory;
     protected $guard = 'employee';
-    protected $fillable = ['employee_id', 'clock_in_time', 'clock_out_time', 'break_start_time','break_start_time'];
+    protected $fillable = ['employee_id', 'clock_in_time', 'clock_out_time', 'break_start_time','break_end_time', 'latitude', 'longitude'];
 
     public function clocks()
     {

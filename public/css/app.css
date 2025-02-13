@@ -1,0 +1,9 @@
+table.dataTable.no-footer {
+ 
+    border-top: 1px solid rgba(0, 0, 0, 0.3) !important;
+}
+
+label {
+ 
+    margin-bottom: 20px;
+}

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\Employee;
 use App\Models\Clock;
 use Carbon\Carbon;
 
@@ -14,7 +14,7 @@ class AdminController extends Controller
     //
     public function showReports()
 {
-    $users = User::with('clocks')->get();
+    $users = Employee::all();
     return view('admin.reports', compact('users'));
 }
 

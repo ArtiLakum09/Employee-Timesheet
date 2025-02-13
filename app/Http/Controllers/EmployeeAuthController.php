@@ -16,19 +16,30 @@ class EmployeeAuthController extends Controller
     }
 
     public function login(Request $request)
-    {
-        $request->validate([
-            'email' => 'required|email',
-            'password' => 'required|min:6',
+    {$request->validate([
+        'email' => 'required|email',
+        'password' => 'required|min:6',
+        'latitude' => 'required|numeric',
+        'longitude' => 'required|numeric',
+    ]);
+
+    $credentials = $request->only('email', 'password');
+
+    if (Auth::guard('employee')->attempt($credentials, $request->remember)) {
+        $employee = Auth::guard('employee')->user();
+        
+        // Update the employee's location
+        $employee->update([
+            'latitude' => $request->latitude,
+            'longitude' => $request->longitude,
         ]);
+        
+     
 
-        $credentials = $request->only('email', 'password');
+        return redirect()->intended(route('employee.dashboard'));
+    }
 
-        if (Auth::guard('employee')->attempt($credentials, $request->remember)) {
-            return redirect()->intended(route('employee.dashboard'));
-        }
-
-        return back()->withErrors(['email' => 'Invalid credentials.']);
+    return back()->withErrors(['email' => 'Invalid credentials.']);
     }
 
     public function logout()

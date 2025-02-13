@@ -37,15 +37,15 @@
                     <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
                 </div>
 
-                <div class="mb-3 form-check">
+                <!-- <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" id="remember" name="remember">
                     <label class="form-check-label" for="remember">Remember Me</label>
-                </div>
+                </div> -->
 
                 <button type="submit" class="btn btn-primary w-100">Login</button>
             </form>
-
-            <p class="text-center mt-3">Don't have an account? <a href="#">Register</a></p>
+<!-- 
+            <p class="text-center mt-3">Don't have an account? <a href="#">Register</a></p> -->
         </div>
     </div>
 
